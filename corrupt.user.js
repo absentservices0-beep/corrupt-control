@@ -7663,7 +7663,6 @@ toggle.addEventListener('click',()=>{
     menu.style.display=menu.style.display==='none'?'flex':'none';
 });
 
-
 /* ---------- START MONITORING ---------- */
 startChannelMonitoring();
 
@@ -7680,6 +7679,6 @@ if(S.userKey && S.timerUnlocked){
 }else{
     lockAllFeatures();
 }
-}
+
 }
 })();
