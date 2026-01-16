@@ -7679,4 +7679,5 @@ if(S.userKey && S.timerUnlocked){
     });
 }else{
     lockAllFeatures();
-}
+ }
+   })();
