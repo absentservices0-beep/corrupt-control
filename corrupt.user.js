@@ -3,7 +3,7 @@
 // @namespace    tampermonkey.net
 // @version      6.0.1
 // @description  Discord Control Menu by @ogunworthy
-// @match        https://discord.com/*
+// @match        *https://discord.com/*
 // @run-at       document-end
 // @grant        GM_xmlhttpRequest
 // @grant        GM_getValue
