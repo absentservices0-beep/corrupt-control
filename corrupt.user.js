@@ -8,7 +8,9 @@
 // @grant        GM_xmlhttpRequest
 // @grant        GM_getValue
 // @grant        GM_setValue
-// @connect      raw.githubusercontent.com   // add this line
+// @updateURL    https://github.com/absentservices0-beep/corrupt-control/blob/main/corrupt.user.js
+// @downloadURL  https://github.com/absentservices0-beep/corrupt-control/blob/main/corrupt.user.js
+// @connect      raw.githubusercontent.com
 // ==/UserScript==
 
 (function() {
