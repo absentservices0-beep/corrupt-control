@@ -7590,4 +7590,98 @@ const developer = cat('Dev');
 
 
 
-/* ================= PASTE THESE ADDITIONAL COMMANDS =============
+/* ================= PASTE THESE ADDITIONAL COMMANDS ================= */
+/* ---------- SEARCH FILTER ---------- */
+searchInput.addEventListener('input',()=>{
+    const val = searchInput.value.toLowerCase();
+    menu.querySelectorAll('div').forEach(d=>{
+        if(d.textContent && d.childNodes.length<=3){
+            const txt=d.textContent.toLowerCase();
+            d.style.display=txt.includes(val)?'':'none';
+        }
+    });
+});
+
+/* ---------- MOBILE DRAG & TAP ---------- */
+let dragging=false,moved=false,sx=0,sy=0;
+toggle.addEventListener('touchstart',e=>{
+    dragging=true; moved=false;
+    sx=e.touches[0].clientX; sy=e.touches[0].clientY;
+},{passive:true});
+
+toggle.addEventListener('touchmove',e=>{
+    if(!dragging) return;
+    const t=e.touches[0];
+    if(Math.abs(t.clientX-sx)+Math.abs(t.clientY-sy)>6){
+        moved=true;
+        toggle.style.right=(window.innerWidth-t.clientX-32)+'px';
+        toggle.style.bottom=(window.innerHeight-t.clientY-32)+'px';
+    }
+},{passive:true});
+
+toggle.addEventListener('touchend',()=>{
+    if(!moved){
+        menu.style.display=menu.style.display==='none'?'flex':'none';
+    }
+    dragging=false;
+});
+
+/* ---------- MENU DRAG ---------- */
+let md=false,mx=0,my=0,ox=0,oy=0;
+header.addEventListener('touchstart',e=>{
+    md=true;
+    mx=e.touches[0].clientX; my=e.touches[0].clientY;
+    ox=menu.offsetLeft; oy=menu.offsetTop;
+},{passive:true});
+
+document.addEventListener('touchmove',e=>{
+    if(!md) return;
+    const t=e.touches[0];
+    menu.style.left=(ox+t.clientX-mx)+'px';
+    menu.style.top=(oy+t.clientY-my)+'px';
+},{passive:true});
+
+document.addEventListener('touchend',()=>md=false);
+
+/* ---------- DESKTOP DRAG ---------- */
+header.addEventListener('mousedown',e=>{
+    md=true;
+    mx=e.clientX; my=e.clientY;
+    ox=menu.offsetLeft; oy=menu.offsetTop;
+});
+
+document.addEventListener('mousemove',e=>{
+    if(!md) return;
+    menu.style.left=(ox+e.clientX-mx)+'px';
+    menu.style.top=(oy+e.clientY-my)+'px';
+});
+
+document.addEventListener('mouseup',()=>md=false);
+
+/* ---------- TOGGLE MENU ---------- */
+toggle.addEventListener('click',()=>{
+    menu.style.display=menu.style.display==='none'?'flex':'none';
+});
+
+
+/* ---------- START MONITORING ---------- */
+startChannelMonitoring();
+
+/* ---------- INITIAL LICENSE CHECK ---------- */
+if(S.userKey && S.timerUnlocked){
+    checkLicense().then(result=>{
+        if(result.active){
+            unlockAllFeatures();
+            startLicenseMonitoring();
+        }else{
+            lockAllFeatures();
+        }
+    });
+}else{
+    lockAllFeatures();
+}
+})();
+            
+            
+    
+            
