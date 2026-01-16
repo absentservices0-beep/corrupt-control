@@ -8,10 +8,11 @@
 // @grant        GM_xmlhttpRequest
 // @grant        GM_getValue
 // @grant        GM_setValue
+// @connect      raw.githubusercontent.com   // add this line
 // ==/UserScript==
 
-(function(){
-'use strict';
+(function() {
+    'use strict';
   
  
 /* ================= CORE ================= */
