@@ -13,9 +13,7 @@
 (function(){
 'use strict';
   
-  
-  
-
+ 
 /* ================= CORE ================= */
 const $ = q=>document.querySelector(q);
 const $$ = q=>[...document.querySelectorAll(q)];
@@ -25,6 +23,30 @@ const store = {
     get:(k,d)=>{try{return JSON.parse(GM_getValue(k,JSON.stringify(d)))}catch{return d}},
     set:(k,v)=>GM_setValue(k,JSON.stringify(v))
 };
+
+// At the top of your script, add this:
+const storage = {
+    save: (key, value) => {
+        if (window.panelStorage) {
+            window.panelStorage.save(key, value);
+        } else {
+            sessionStorage.setItem(key, JSON.stringify(value));
+        }
+    },
+    load: (key, defaultValue = null) => {
+        if (window.panelStorage) {
+            return window.panelStorage.load(key, defaultValue);
+        } else {
+            const val = sessionStorage.getItem(key);
+            return val ? JSON.parse(val) : defaultValue;
+        }
+    }
+};
+
+// Then for login keys, use:
+storage.save('loginKey', ${S.userKey});
+const savedKey = storage.load('loginKey');  
+  
 
 /* ================= WAIT FOR DISCORD ================= */
 const wait = setInterval(()=>{
