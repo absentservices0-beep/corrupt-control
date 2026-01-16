@@ -8,8 +8,8 @@
 // @grant        GM_xmlhttpRequest
 // @grant        GM_getValue
 // @grant        GM_setValue
-// @updateURL    https://github.com/absentservices0-beep/corrupt-control/blob/main/corrupt.user.js
-// @downloadURL  https://github.com/absentservices0-beep/corrupt-control/blob/main/corrupt.user.js
+// @updateURL    https://raw.githubusercontent.com/absentservices0-beep/corrupt-control/refs/heads/main/corrupt.user.js
+// @downloadURL  https://raw.githubusercontent.com/absentservices0-beep/corrupt-control/refs/heads/main/corrupt.user.js
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
