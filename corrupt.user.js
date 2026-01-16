@@ -25,28 +25,6 @@ const store = {
 };
 
 // At the top of your script, add this:
-const storage = {
-    save: (key, value) => {
-        if (window.panelStorage) {
-            window.panelStorage.save(key, value);
-        } else {
-            sessionStorage.setItem(key, JSON.stringify(value));
-        }
-    },
-    load: (key, defaultValue = null) => {
-        if (window.panelStorage) {
-            return window.panelStorage.load(key, defaultValue);
-        } else {
-            const val = sessionStorage.getItem(key);
-            return val ? JSON.parse(val) : defaultValue;
-        }
-    }
-};
-
-// Then for login keys, use:
-storage.save('loginKey', ${S.userKey});
-const savedKey = storage.load('loginKey');  
-  
 
 /* ================= WAIT FOR DISCORD ================= */
 const wait = setInterval(()=>{
