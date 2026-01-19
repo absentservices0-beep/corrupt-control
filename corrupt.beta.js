@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Corrupt Discord - BETA 1 (OBF)
+// @name         Corrupt Discord
 // @namespace    tampermonkey.net
 // @version      6.0.1
 // @description  developed by @ogunworthy
