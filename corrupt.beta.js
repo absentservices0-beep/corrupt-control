@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Discord Panel v6.0.2 Latest
+// @name         Discord Panel v6.0.1 Latest
 // @namespace    tampermonkey.net
-// @version      6.0.2
+// @version      6.0.1
 // @description  Discord Control Menu by @ogunworthy
 // @match        https://discord.com/*
 // @run-at       document-end
